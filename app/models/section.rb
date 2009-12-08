@@ -21,6 +21,14 @@ class Section
     link = links[name]
     link.to if link
   end
+
+  def subsection!(name)
+    link = links[name]
+    if link.nil?
+      link = links.build(:label => name, :to => Section.create)
+    end
+    link.to 
+  end
   
 end
 

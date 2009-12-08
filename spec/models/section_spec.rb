@@ -44,6 +44,40 @@ describe Section do
       end
 
     end
+
+    describe "(name_of_missing_subsection)" do
+      
+      it "returns nil" do
+        @london.subsection("History").should == nil
+      end
+
+    end
+    
+  end
+
+  describe "#subsection!" do
+    
+    before do
+      @london = Section.create
+      @london_intro = Section.create(:body => "Intro to London")
+      @london.links.build(:label => "Introduction", :to => @london_intro)
+    end
+
+    describe "(name_of_existing_subsection)" do
+      
+      it "returns the linked section" do
+        @london.subsection!("Introduction").should == @london_intro
+      end
+
+    end
+
+    describe "(name_of_missing_subsection)" do
+      
+      it "creates a new subsection" do
+        @london.subsection!("History").should be_kind_of(Section)
+      end
+
+    end
     
   end
   
