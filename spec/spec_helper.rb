@@ -27,3 +27,7 @@ Spec::Runner.configure do |config|
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
+
+def fixture_dir
+  @fixture_dir ||= File.expand_path("../fixtures", __FILE__)
+end

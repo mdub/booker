@@ -16,6 +16,11 @@ class Section
     end
 
   end
+
+  def subsection(name)
+    link = links[name]
+    link.to if link
+  end
   
 end
 
