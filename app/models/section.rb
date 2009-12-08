@@ -4,9 +4,28 @@ class Section
 
   key :body, String
 
-  many :outbound_links, :class_name => 'SectionLink', :foreign_key => :from_id
-  many :inbound_links, :class_name => 'SectionLink', :foreign_key => :to_id
+  many :links, :class_name => 'SectionLink' do
+    
+    def [](index_or_label)
+      case index_or_label
+      when Integer
+        super(index_or_label)
+      when String
+        detect { |link| index_or_label === link.label }
+      end
+    end
 
-  alias :links :outbound_links
+  end
   
+end
+
+class SectionLink
+
+  include MongoMapper::EmbeddedDocument
+
+  key :label, String, :required => true
+  key :to_id, ObjectId, :required => true
+
+  belongs_to :to, :class_name => "Section"
+
 end
