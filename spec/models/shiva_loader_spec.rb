@@ -21,10 +21,8 @@ describe ShivaLoader do
     describe "the book" do
       
       it "has links to each loaded chapter" do
-        pending do
-          @loader.book.should have(1).link
-          @loader.book.links[0].label.should == "Getting Started"
-        end
+        @loader.book.should have(1).link
+        @loader.book.links[0].label.should == "Getting Started"
       end
       
     end
