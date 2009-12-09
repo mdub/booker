@@ -1,11 +1,12 @@
 class ShivaLoader
 
   def book
-    @book ||= Section.create!
+    @book ||= Book.create!
   end
 
   def load(xml)
     doc = Nokogiri::XML.parse(xml)
+    book.title ||= doc.xpath("/book-content/book/title").first.text
     doc.xpath("/book-content/content").each do |content_element|
       section_path = content_element.xpath("sections//title").map(&:text)
       section = find_or_create_section(section_path)
@@ -14,10 +15,8 @@ class ShivaLoader
     end
   end
 
-  private
-
   def find_or_create_section(names)
-    names.inject(book) do |section, name|
+    names.inject(book.root) do |section, name|
       section.subsection!(name)
     end
   end

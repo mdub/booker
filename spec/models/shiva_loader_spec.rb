@@ -14,17 +14,21 @@ describe ShivaLoader do
       end
     end
 
-    it "returns a Section, representing the book" do
-      @loader.book.should be_kind_of(Section)
+    it "reconstructs a Book" do
+      @loader.book.should_not == nil
     end
 
-    describe "the book" do
+    describe "the Book" do
+
+      it "has a title" do
+        @loader.book.title.should == "Amsterdam-6"
+      end
       
       it "has links to each loaded chapter" do
         @loader.book.should have(1).link
         @loader.book.links[0].label.should == "Getting Started"
       end
-      
+
     end
     
   end

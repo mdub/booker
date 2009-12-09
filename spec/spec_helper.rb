@@ -14,6 +14,12 @@ Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].e
 
 Spec::Runner.configure do |config|
 
+  config.before(:all) do
+    MongoMapper.database.collections.each do |c|
+      c.remove
+    end
+  end
+  
   # == Mock Framework
   #
   # RSpec uses it's own mocking framework by default. If you prefer to
