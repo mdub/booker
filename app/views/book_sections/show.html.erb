@@ -1,5 +1,5 @@
 <h1><%= link_to @book.title, book_path(@book) %></h1>
-<h2><%= @section_path.join(" / ") %></h2>
+<h2><%= book_section_breadcrumb_trail %></h2>
 
 <div class="body">
 <%= @section.body %>
