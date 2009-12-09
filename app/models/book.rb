@@ -1,3 +1,5 @@
+require "active_support/core_ext/module"
+
 class Book
 
   include MongoMapper::Document
@@ -11,10 +13,8 @@ class Book
     self.root = Section.new
     super
   end
-  
-  def links
-    root.links
-  end
+
+  delegate :links, :subsection, :subsection!, :to => :root
   
 end
 

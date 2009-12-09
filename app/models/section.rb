@@ -26,6 +26,7 @@ class Section
     link = links[name]
     if link.nil?
       link = links.build(:label => name, :to => Section.create)
+      self.save!
     end
     link.to 
   end

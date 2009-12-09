@@ -13,6 +13,7 @@ class ShivaLoader
       section.body = content_element.xpath("body").text
       section.save!
     end
+    book.save!
   end
 
   def find_or_create_section(names)
