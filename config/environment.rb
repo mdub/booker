@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "mongo_mapper", "0.6.4"
   config.gem "nokogiri", "1.4.0"
+  config.gem "rack", "1.0.1"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
