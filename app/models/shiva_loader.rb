@@ -20,7 +20,7 @@ class ShivaLoader
     doc.xpath("/book-content/content").each do |content_element|
       section_path = content_element.xpath("sections//title").map(&:text)
       section = find_or_create_section(section_path)
-      section.body = content_element.xpath("body").text
+      section.body = content_element.xpath("body").inner_html
       section.save!
     end
     book.save!

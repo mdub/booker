@@ -16,5 +16,9 @@ class Book
 
   delegate :links, :subsection, :subsection!, :to => :root
   
+  def to_param
+    title
+  end
+  
 end
 
