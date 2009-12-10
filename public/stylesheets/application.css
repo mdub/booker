@@ -44,3 +44,7 @@ div.subsections ul {
 div.subsections ul li {
   list-style: none;
 }
+
+.poi {
+  color: green;
+}

@@ -31,6 +31,10 @@ class Section
     link.to 
   end
   
+  def body_html
+    body.gsub("<poi>", "<span class='poi'>").gsub("</poi>", "</span>")
+  end
+
 end
 
 class SectionLink
