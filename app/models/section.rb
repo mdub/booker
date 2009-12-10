@@ -32,7 +32,12 @@ class Section
   end
   
   def body_html
-    (body || "").gsub("<poi>", "<span class='poi'>").gsub("</poi>", "</span>")
+    html = body.dup || ""
+    html.gsub!("<poi>", "<span class='poi'>").gsub!("</poi>", "</span>")
+    html.gsub!(/\bwww(\.\w+)+\b/) { |hostname|
+      %{<a href="http://#{hostname}">#{hostname}</a>}
+    }
+    html
   end
 
 end
