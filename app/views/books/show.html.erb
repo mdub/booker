@@ -1,9 +1,12 @@
 <h1><%= @book.title %></h1>
 
+<%- unless @book.links.empty? -%>
 <div class="subsections">
+  <h3>Sub-sections</h3>
   <ul>
     <%- for link in @book.links do -%>
     <li><%= subsection_link(link) %></li>
     <%- end -%>
   </ul>
 </div>
+<%- end -%>

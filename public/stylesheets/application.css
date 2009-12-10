@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 5px;
+}
+
+h1 {
+  margin: -5px -5px 0 -5px;
+  background: black;
+  padding: 5px;
+  color: white;
+}
+
+a {
+  text-decoration: inherit;
+}
+
+h1 a {
+  color: inherit;
+}
+
+h2 {
+  background: #996;
+  margin: 0 -5px;
+  padding: 5px;
+}
+
+div.body {
+  float: left;
+  width: 70%;
+  padding: 0.5em;
+}
+
+div.subsections {
+  float: right;
+  width: 25%;
+  padding: 0.5em;
+  border-left: 1px dotted gray;
+}
+
+div.subsections ul {
+  padding: 0;
+}
+
+div.subsections ul li {
+  list-style: none;
+}
