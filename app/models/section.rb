@@ -38,6 +38,9 @@ class Section
     html.gsub!(/\bwww(\.\w+)+\b/) { |hostname|
       %{<a href="http://#{hostname}">#{hostname}</a>}
     }
+    html.gsub!(/\b\w+@\w+(\.\w+)+\b/) { |email_address|
+      %{<a href="mailto:#{email_address}">#{email_address}</a>}
+    }
     html
   end
 
