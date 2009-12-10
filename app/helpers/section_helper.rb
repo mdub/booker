@@ -22,7 +22,15 @@ module SectionHelper
   end
   
   def book_section_breadcrumb_trail
-    book_section_breadcrumb_links.join(" / ")
+    book_section_breadcrumb_links
+  end
+
+  def book_section_headings
+    out = ""
+    book_section_breadcrumb_links.each_with_index do |link, i|
+      out << content_tag("h#{i+2}", link) << "\n"
+    end
+    out
   end
   
 end

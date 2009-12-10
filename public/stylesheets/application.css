@@ -18,10 +18,15 @@ h1 a {
   color: inherit;
 }
 
-h2 {
-  background: #996;
+div.headings > * {
+  background: #999;
   margin: 0 -5px;
   padding: 5px;
+}
+
+a {
+  font-style: italic;
+  color: #006;
 }
 
 div.body {
@@ -35,6 +40,12 @@ div.subsections {
   width: 25%;
   padding: 0.5em;
   border-left: 1px dotted gray;
+}
+
+div.subsections h3 {
+  background: inherit;
+  margin: inherit;
+  padding: 0;
 }
 
 div.subsections ul {
