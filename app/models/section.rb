@@ -32,7 +32,7 @@ class Section
   end
   
   def body_html
-    body.gsub("<poi>", "<span class='poi'>").gsub("</poi>", "</span>")
+    (body || "").gsub("<poi>", "<span class='poi'>").gsub("</poi>", "</span>")
   end
 
 end
