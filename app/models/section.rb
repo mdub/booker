@@ -35,8 +35,10 @@ class Section
     html = body.nil? ? "" : body.dup
     html.gsub!("<poi>", "<span class='poi'>")
     html.gsub!("</poi>", "</span>")
-    html.gsub!(/\bwww(\.\w+)+\b/) { |hostname|
-      %{<a href="http://#{hostname}">#{hostname}</a>}
+    html.gsub!("www.", "http://www.")
+    html.gsub!("http://http://", "http://")
+    html.gsub!(%r{\bhttp://[\w_\-./;?]+\w}) { |url|
+      %{<a class="external" href="#{url}">#{url}</a>}
     }
     html.gsub!(/\b\w+@\w+(\.\w+)+\b/) { |email_address|
       %{<a href="mailto:#{email_address}">#{email_address}</a>}

@@ -35,6 +35,14 @@ a {
   color: #006;
 }
 
+a.external {
+  color: blue;
+}
+
+a.external:after {
+  content: "⇝";
+}
+
 div.body {
   float: left;
   width: 70%;
