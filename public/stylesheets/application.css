@@ -32,11 +32,6 @@ div.headings > * {
 
 a {
   font-style: italic;
-  color: #006;
-}
-
-a.external {
-  color: blue;
 }
 
 a.external:after {
