@@ -8,6 +8,13 @@ module SectionHelper
     book_section_link(@book, current_section_labels + [link.label])
   end
 
+  def book_section_path(book, section_labels)
+    segments = [book_path(book)] + section_labels.map do |label|
+      URI.escape(label, /\W/)
+    end
+    segments.join("/")
+  end
+  
   def book_section_link(book, section_labels)
     link_to(section_labels.last, book_section_path(book, section_labels))
   end
