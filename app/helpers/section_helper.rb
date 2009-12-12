@@ -1,28 +1,28 @@
 module SectionHelper
 
-  def current_section_labels
-    (params[:labels] || [])#.map(&CGI.method(:unescape))
+  def current_section_keys
+    (params[:section_keys] || [])
   end
   
   def subsection_link(link)
-    book_section_link(@book, current_section_labels + [link.label])
+    book_section_link(@book, current_section_keys + [link.label])
   end
 
-  def book_section_path(book, section_labels)
-    segments = [book_path(book)] + section_labels.map do |label|
+  def book_section_path(book, section_keys)
+    segments = [book_path(book)] + section_keys.map do |label|
       URI.escape(label, /\W/)
     end
     segments.join("/")
   end
   
-  def book_section_link(book, section_labels)
-    link_to(section_labels.last, book_section_path(book, section_labels))
+  def book_section_link(book, section_keys)
+    link_to(section_keys.last, book_section_path(book, section_keys))
   end
   
   def book_section_breadcrumb_links
     links = []
-    1.upto(current_section_labels.length) do |n|
-      labels = current_section_labels[0, n]
+    1.upto(current_section_keys.length) do |n|
+      labels = current_section_keys[0, n]
       links << link_to_unless_current(labels.last, book_section_path(@book, labels))
     end
     links

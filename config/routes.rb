@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.resources :books
   map.books           'books',                      :controller => "books"
   map.book            'books/:title',               :controller => "books", :action => "show"
-  map.book_section    'books/:title/*labels',       :controller => "book_sections", :action => "show"
+  map.book_section    'books/:title/*section_keys', :controller => "book_sections", :action => "show"
   
   # The priority is based upon order of creation: first created -> highest priority.
 
