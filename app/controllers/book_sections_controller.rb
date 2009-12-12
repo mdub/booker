@@ -3,8 +3,12 @@ class BookSectionsController < ApplicationController
   def show
     @book = Book.find_by_title!(params[:title])
     @section_keys = params[:section_keys]
-    @section = @section_keys.inject(@book.root) do |section, label|
-      section.subsection(label)
+    @section = @book.root
+    @section_link_stack = []
+    @section_keys.each do |section_key|
+      link = @section.links[section_key]
+      @section_link_stack << link
+      @section = link.to
     end
   end
 

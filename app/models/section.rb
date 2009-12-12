@@ -60,7 +60,7 @@ class SectionLink
   belongs_to :to, :class_name => "Section"
   
   def to_param
-    label.gsub("&", "and").scan(/\w+/).join("-")
+    label.gsub("&", "and").scan(/\w+/).join("_")
   end
 
 end
