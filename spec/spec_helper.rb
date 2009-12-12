@@ -14,7 +14,7 @@ Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].e
 
 Spec::Runner.configure do |config|
 
-  config.before(:all) do
+  config.before(:each) do
     MongoMapper.database.collections.each do |c|
       c.remove
     end
