@@ -14,7 +14,7 @@ class Book
     super
   end
 
-  delegate :links, :subsection, :subsection!, :to => :root
+  delegate :links, :subsection, :subsection!, :[], :to => :root
   
   def to_param
     title

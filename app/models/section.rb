@@ -32,6 +32,12 @@ class Section
     end
     link.to 
   end
+
+  def [](*names)
+    names.inject(self) do |section, name|
+      section.subsection(name)
+    end
+  end
   
   def body_html
     html = body.nil? ? "" : body.dup
