@@ -1,5 +1,13 @@
+require "logger"
+
 class ShivaLoader
 
+  def initialize
+    @logger = Logger.new(nil)
+  end
+
+  attr_accessor :logger
+  
   def book
     @book ||= Book.create!
   end
@@ -19,6 +27,7 @@ class ShivaLoader
     self.title = doc.xpath("/book-content/book/title").first.text
     doc.xpath("/book-content/content | /book-content/box-text-content").each do |content_element|
       section_path = content_element.xpath("sections//title").map(&:text)
+      logger.info("loading: #{section_path.join(" - ")}")
       section = find_or_create_section(section_path)
       section.body = content_element.xpath("body").inner_html
       section.save!

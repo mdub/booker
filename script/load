@@ -2,8 +2,10 @@
 require File.expand_path('../../config/environment',  __FILE__)
 
 require "nokogiri"
+require "logger"
 
 loader = ShivaLoader.new
+loader.logger = Logger.new(STDOUT)
 
 ARGV.each do |file_name|
   File.open(file_name) do |xml|
