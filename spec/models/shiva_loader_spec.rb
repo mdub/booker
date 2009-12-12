@@ -35,6 +35,10 @@ describe ShivaLoader do
       @loader.book["Getting Started", "Festivals & Events"].should_not == nil
     end
 
+    it "loads box-text-content sections" do
+      @loader.book["Getting Started", "How Much?"].should_not == nil
+    end
+
     describe "each Section" do
 
       before do

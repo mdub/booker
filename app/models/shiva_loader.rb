@@ -17,7 +17,7 @@ class ShivaLoader
   def load(xml)
     doc = Nokogiri::XML.parse(xml)
     self.title = doc.xpath("/book-content/book/title").first.text
-    doc.xpath("/book-content/content").each do |content_element|
+    doc.xpath("/book-content/content | /book-content/box-text-content").each do |content_element|
       section_path = content_element.xpath("sections//title").map(&:text)
       section = find_or_create_section(section_path)
       section.body = content_element.xpath("body").inner_html
