@@ -11,7 +11,9 @@ class Section
       when Integer
         super(index_or_label)
       when String
-        detect { |link| index_or_label === link.label }
+        detect do |link|
+          index_or_label === link.label || index_or_label === link.to_param
+        end
       end
     end
 
@@ -56,5 +58,9 @@ class SectionLink
   key :to_id, ObjectId, :required => true
 
   belongs_to :to, :class_name => "Section"
+  
+  def to_param
+    label.gsub("&", "and").scan(/\w+/).join("-")
+  end
 
 end
