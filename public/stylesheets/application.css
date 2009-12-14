@@ -4,18 +4,25 @@ body {
 }
 
 h1 {
-  margin: -5px -5px 0 -5px;
+  margin: 0 -5px 0 -5px;
   background: black;
   padding: 5px;
   color: white;
+}
+
+h1 a, div.banner a {
+  color: inherit;
 }
 
 a {
   text-decoration: inherit;
 }
 
-h1 a {
-  color: inherit;
+div.banner {
+  margin: -5px;
+  padding: 0 0.5em;
+  background: black;
+  color: white;
 }
 
 div.headings {
@@ -28,6 +35,11 @@ div.headings {
 div.headings > * {
   margin: 0;
   padding: 0.3em 0 0 0;
+  font-size: 120% 
+}
+
+div.headings a {
+  color: #333;
 }
 
 a {
