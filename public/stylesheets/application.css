@@ -56,6 +56,21 @@ div.body {
   padding: 0.5em;
 }
 
+.body .actions {
+  visibility: hidden;
+  float: right;
+  margin: 0.2em;
+  background: #ccb;
+  padding: 0.4em;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.body:hover .actions {
+  visibility: visible;
+}
+
 div.subsections {
   float: right;
   width: 25%;
