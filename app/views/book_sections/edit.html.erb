@@ -1,0 +1,19 @@
+<h1><%= link_to @book.title, book_path(@book) %></h1>
+
+<div class="headings">
+<%= book_section_headings %>
+</div>
+
+<div class="body">
+<% form_for @section, :url => edit_book_section_path(@book, section_link_stack) do |f| -%>
+
+<p>
+<%= f.text_area :body, :rows => 20, :cols => 60 %>
+</p>
+
+<p>
+<%= f.submit "Save", :disable_with => 'Saving...' %>
+</p>
+
+<% end -%>
+</div>

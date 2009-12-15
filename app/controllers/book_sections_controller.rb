@@ -1,6 +1,22 @@
 class BookSectionsController < ApplicationController
 
+  before_filter :find_book_and_sections
+  
   def show
+  end
+  
+  def edit
+  end
+
+  def update
+    @section.body = params[:section][:body]
+    @section.save!
+    redirect_to :action => "show"
+  end
+  
+  private
+  
+  def find_book_and_sections
     @book = Book.find_by_title!(params[:title])
     @section_keys = params[:section_keys]
     @section = @book.root
@@ -11,5 +27,5 @@ class BookSectionsController < ApplicationController
       @section = link.to
     end
   end
-
+  
 end

@@ -6,7 +6,7 @@
 
 <div class="body">
 <div class="actions">
-<%= link_to "edit", "", :title => "NOT IMPLEMENTED YET" %>
+<%= link_to "edit", edit_book_section_path(@book, section_link_stack)%>
 </div>
 <%= @section.body_html %>
 </div>
