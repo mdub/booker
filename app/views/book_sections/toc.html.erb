@@ -1,0 +1,9 @@
+<h1><%= link_to @book.title, book_path(@book) %></h1>
+
+<div class="headings">
+<%= book_section_headings %>
+</div>
+
+<div class="toc">
+  <%= book_section_subsection_links(@book, section_link_stack, true) %>
+</div>

@@ -1,6 +1,11 @@
 <h1><%= @book.title %></h1>
 
-<%- unless @book.links.empty? -%>
+<div class="body">
+
+<div class="actions">
+<%= link_to "full table of contents",  book_section_toc_path(@book, [])%>
+</div>  
+
 <div class="toc">
   <% section = @book.root %>
   <ul>
@@ -9,4 +14,5 @@
     <%- end -%>
   </ul>
 </div>
-<%- end -%>
+
+</div>

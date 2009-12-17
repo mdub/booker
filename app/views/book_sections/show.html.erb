@@ -6,7 +6,8 @@
 
 <div class="body">
 <div class="actions">
-<%= link_to "edit", edit_book_section_path(@book, section_link_stack)%>
+<%= link_to "edit", edit_book_section_path(@book, section_link_stack)%> |
+<%= link_to "TOC",  book_section_toc_path(@book, section_link_stack)%>
 </div>
 <%= @section.body_html %>
 </div>
@@ -14,10 +15,6 @@
 <%- unless @section.links.empty? -%>
 <div class="subsections">
   <h3>Sub-sections</h3>
-  <ul>
-    <%- for link in @section.links do -%>
-    <li><%= subsection_link(link) %></li>
-    <%- end -%>
-  </ul>
+  <%= book_section_subsection_links(@book, section_link_stack) %>
 </div>
 <%- end -%>

@@ -8,6 +8,9 @@ class BookSectionsController < ApplicationController
   def edit
   end
 
+  def toc
+  end
+  
   def update
     @section.body = params[:section][:body]
     @section.save!

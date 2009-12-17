@@ -32,5 +32,19 @@ module SectionHelper
     end
     out
   end
-  
+
+  def book_section_subsection_links(book, section_link_stack, recursive = false)
+    section = section_link_stack.empty? ? book.root : section_link_stack.last.to
+    return "" if section.links.empty?
+    html = "<ul>\n"
+    section.links.each do |link|
+      html += "<li>" + book_section_link(book, section_link_stack + [link]) + "</li>"
+      if recursive
+        html += book_section_subsection_links(book, section_link_stack + [link])
+      end
+    end
+    html += "</ul>\n"
+    html
+  end
+
 end
