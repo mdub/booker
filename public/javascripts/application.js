@@ -1,9 +1,17 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+CKEDITOR.addStylesSet('LP', [
+
+  // Inline Styles
+  { name: 'POI', element: 'span', attributes: { 'class' : 'poi' }, styles: { 'color' : 'green' }}
+
+]);
+
 $(function() {
 
   var ckeditorConfig = {
+    
     toolbar: [
       ['Save'],
       ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
@@ -17,7 +25,10 @@ $(function() {
       ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'],
       ['Styles', 'Format'],
       ['Link'],
-    ]
+    ],
+    
+    stylesCombo_stylesSet: 'LP'
+    
   };
 
   $(window).load(function() {
