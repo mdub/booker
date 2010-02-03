@@ -3,13 +3,21 @@
 
 $(function() {
 
-	var ckeditorConfig = {
-		toolbar: 
-		[
-			['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
-			['UIColor']
-		]
-	};
+  var ckeditorConfig = {
+    toolbar: [
+      ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+      ['SelectAll'],
+      ['Undo', 'Redo'],
+      ['Find', 'Replace'],
+      ['ShowBlocks', 'Source'],
+      ['Maximize'],
+      ['About'],
+      '/',
+      ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'],
+      ['Styles', 'Format'],
+      ['Link'],
+    ]
+  };
 
   $(window).load(function() {
     $('textarea.editor').ckeditor(ckeditorConfig);
