@@ -8,7 +8,7 @@
 <% form_for @section, :url => edit_book_section_path(@book, section_link_stack) do |f| -%>
 
 <p>
-<%= f.text_area :body, :rows => 20, :cols => 60 %>
+<%= f.text_area :body, :rows => 20, :cols => 60, :class => "editor" %>
 </p>
 
 <p>
