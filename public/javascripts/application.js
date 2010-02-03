@@ -5,6 +5,7 @@ $(function() {
 
   var ckeditorConfig = {
     toolbar: [
+      ['Save'],
       ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
       ['SelectAll'],
       ['Undo', 'Redo'],
@@ -20,7 +21,9 @@ $(function() {
   };
 
   $(window).load(function() {
-    $('textarea.editor').ckeditor(ckeditorConfig);
+    $('textarea.editor').each(function() {
+      CKEDITOR.replace(this, ckeditorConfig);
+    });
   });
 
 });
