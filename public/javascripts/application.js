@@ -11,6 +11,10 @@ CKEDITOR.addStylesSet('LP', [
 $(function() {
 
   var ckeditorConfig = {
+
+    resize_minWidth: 600,
+    resize_minHeight: 350,
+    height: 400,
     
     toolbar: [
       ['Save'],
