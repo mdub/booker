@@ -9,7 +9,7 @@
 <%= link_to "edit", edit_book_section_path(@book, section_link_stack)%> |
 <%= link_to "TOC",  book_section_toc_path(@book, section_link_stack)%>
 </div>
-<%= @section.body_html %>
+<%= raw @section.body_html %>
 </div>
 
 <%- unless @section.links.empty? -%>

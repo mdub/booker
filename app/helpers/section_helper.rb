@@ -30,7 +30,7 @@ module SectionHelper
     book_section_breadcrumb_links.each_with_index do |link, i|
       out << content_tag("h#{i+2}", link) << "\n"
     end
-    out
+    out.html_safe!
   end
 
   def book_section_subsection_links(book, section_link_stack, recursive = false)
@@ -44,7 +44,7 @@ module SectionHelper
       end
     end
     html += "</ul>\n"
-    html
+    html.html_safe!
   end
 
 end
