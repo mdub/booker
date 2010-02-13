@@ -1,7 +1,7 @@
-class BookSectionsController < ApplicationController
+class SectionsController < ApplicationController
 
   before_filter :find_book_and_sections
-  layout "book_section"
+  layout "section"
   
   def show
   end
