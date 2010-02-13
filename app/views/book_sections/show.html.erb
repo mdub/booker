@@ -2,16 +2,10 @@
 <%= javascript_include_tag "edit-subsections" %>
 <%- end -%>
 
-<h1><%= link_to @book.title, book_path(@book) %></h1>
-
-<div class="headings">
-<%= book_section_headings %>
-</div>
-
 <div class="body">
 <div class="actions">
-<%= link_to "edit", edit_book_section_path(@book, section_link_stack)%> |
-<%= link_to "TOC",  book_section_toc_path(@book, section_link_stack)%>
+<%= link_to "edit", edit_book_section_path(@book, section_link_stack)%> 
+| <%= link_to "TOC",  book_section_toc_path(@book, section_link_stack)%>
 </div>
 <%= raw @section.body_html %>
 </div>

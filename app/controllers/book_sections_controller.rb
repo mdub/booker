@@ -1,6 +1,7 @@
 class BookSectionsController < ApplicationController
 
   before_filter :find_book_and_sections
+  layout "book_section"
   
   def show
   end
@@ -26,6 +27,7 @@ class BookSectionsController < ApplicationController
     @section_link_stack = []
     @section_keys.each do |section_key|
       link = @section.links[section_key]
+      raise "can't resolve #{section_key.inspect}" unless link
       @section_link_stack << link
       @section = link.to
     end
