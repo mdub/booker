@@ -1,3 +1,7 @@
+<%- content_for :head do -%>
+<%= javascript_include_tag "edit-subsections" %>
+<%- end -%>
+
 <h1><%= link_to @book.title, book_path(@book) %></h1>
 
 <div class="headings">

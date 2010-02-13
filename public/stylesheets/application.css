@@ -92,6 +92,20 @@ div.subsections ul li {
   list-style: none;
 }
 
+div.subsections li .edit {
+  font-size: 50%;
+  vertical-align: super;
+  visibility: hidden;
+}
+
+div.subsections li:hover .edit {
+  visibility: visible;
+}
+
+*[contenteditable] {
+  border: 1px solid gray;
+}
+
 .poi {
   color: green;
 }
