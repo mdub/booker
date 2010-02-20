@@ -9,7 +9,7 @@ describe ShivaLoader do
   describe "when loading a Shiva output file" do
 
     before do
-      File.open("#{fixture_dir}/04-getting_started-ams6.xml") do |xml|
+      File.open("#{fixture_dir}/10-eating-ams6.xml") do |xml|
         @loader.load(xml)
       end
     end
@@ -26,29 +26,31 @@ describe ShivaLoader do
 
       it "has links to each loaded chapter" do
         @loader.book.should have(1).link
-        @loader.book.links[0].label.should == "Getting Started"
+        @loader.book.links[0].label.should == "Eating"
       end
 
     end
 
     it "loads content sections" do
-      @loader.book["Getting Started", "Festivals & Events"].should_not == nil
+      @loader.book["Eating", "Sweet Dreams"].should_not == nil
     end
 
     it "loads box-text-content sections" do
-      @loader.book["Getting Started", "How Much?"].should_not == nil
+      @loader.book["Eating", "Price Guide"].should_not == nil
     end
 
     describe "each Section" do
 
       before do
-        @festivals_section = @loader.book["Getting Started", "Festivals & Events"]
+        @festivals_section = @loader.book["Eating", "Sweet Dreams"]
       end
 
       it "has body HTML" do
-        @festivals_section.body.should =~ %r{^<p>The annual calendar is a never-ending procession of parties}
+        @festivals_section.body.should =~ %r{^<p>The Dutch craving for sweet things goes back to the Golden Age}
       end
 
+      it "has POIs"
+      
     end
 
   end

@@ -4,6 +4,8 @@ class Section
 
   key :body, String
 
+  many :pois
+  
   many :links, :class_name => 'SectionLink' do
     
     def [](index_or_label)
