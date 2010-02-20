@@ -21,9 +21,15 @@ class Section
 
   end
 
-  def subsection(name)
+  def _subsection(name)
     link = links[name]
     link.to if link
+  end
+
+  def subsection(*names)
+    names.inject(self) do |section, name|
+      section._subsection(name)
+    end
   end
 
   def subsection!(name)
@@ -33,12 +39,6 @@ class Section
       self.save!
     end
     link.to 
-  end
-
-  def [](*names)
-    names.inject(self) do |section, name|
-      section.subsection(name)
-    end
   end
   
   def body_html

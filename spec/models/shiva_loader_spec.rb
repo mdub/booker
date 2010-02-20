@@ -32,17 +32,17 @@ describe ShivaLoader do
     end
 
     it "loads content sections" do
-      @loader.book["Eating", "Sweet Dreams"].should_not == nil
+      @loader.book.subsection("Eating", "Sweet Dreams").should_not == nil
     end
 
     it "loads box-text-content sections" do
-      @loader.book["Eating", "Price Guide"].should_not == nil
+      @loader.book.subsection("Eating", "Price Guide").should_not == nil
     end
 
     describe "each Section" do
 
       before do
-        @festivals_section = @loader.book["Eating", "Sweet Dreams"]
+        @festivals_section = @loader.book.subsection("Eating", "Sweet Dreams")
       end
 
       it "has body HTML" do
